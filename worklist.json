@@ -2,7 +2,7 @@
   "worklist_version": "1.0.0",
   "project": "DesignSell Website — Blueprint Redesign",
   "site": "designsell.org",
-  "repo": "Scir0cc0/Designsell-Website",
+  "repo": "Scir0cc0/DesignSell-Website",
   "owner": "Robert G. Murray",
   "last_updated": "2026-08-27",
   "status": "active",
@@ -68,7 +68,7 @@
     "Does the engagement/signal-markers content live as its own page or get inlined into index.html the way Perspectives was on the amber-direction site?"
   ],
   "changelog": [
-    { "date": "2026-08-27", "change": "Confirmed OpenClaw (the Pi-based agent) was never used to build any part of the site — all build work was done via Claude Chat. Resolves the open question from session 04. Also confirmed Scir0cc0/Designsell-Website (renamed by Rob) is now the official repo for ongoing development." },
+    { "date": "2026-08-27", "change": "Confirmed OpenClaw (the Pi-based agent) was never used to build any part of the site — all build work was done via Claude Chat. Resolves the open question from session 04. Also confirmed Scir0cc0/DesignSell-Website (renamed by Rob) is now the official repo for ongoing development." },
     { "date": "2026-08-27", "change": "worklist.json established as ground truth (v1.0.0) and committed to Obsidian + delivered for repo commit. Consolidated from the full DesignSell Website chat-session history (sessions 01–07, logged the same day in Obsidian)." },
     { "date": "2026-08-22", "change": "Blueprint/schematic redesign direction started in Claude's sandbox (session 07: 'Website direction change'). No prior worklist.json was ever committed to the repo despite being referenced in project memory at v0.4.2 — that version's history is not recoverable." }
   ]
