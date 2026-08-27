@@ -148,6 +148,27 @@
     gap: 2rem;
   }
 
+  .nav-hamburger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .nav-hamburger:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
   /* ── NAV ── */
   nav {
     position: fixed;
@@ -1130,7 +1151,28 @@
   }
 
   @media (max-width: 600px) {
-    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.mobile-open { display: flex; }
+    .nav-links li { width: 100%; }
+    .nav-links a {
+      display: block;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .nav-links a::after { display: none; }
     .hero h1 { font-size: 2.3rem; }
     .domain-item { grid-template-columns: 1fr auto; }
     .domain-marker { display: none; }
@@ -1158,6 +1200,7 @@
       <span class="theme-toggle-icon" id="themeIcon">☀</span>
       <span id="themeLabel">Light</span>
     </button>
+    <button class="nav-hamburger" id="navHamburger" onclick="toggleMobileNav()" aria-label="Menu" aria-expanded="false">☰</button>
   </div>
 </nav>
 
@@ -1482,7 +1525,7 @@
     </div>
   </div>
   <div class="reveal" style="margin-top: 1.5rem;">
-    <a href="RGM_Executive_One_Pager.pdf" target="_blank" class="download-link">↓ Download Executive One-Pager (PDF)</a>
+    <a href="RGM_Executive_One_Pager_Light.pdf" target="_blank" class="download-link">↓ Download Executive One-Pager (PDF)</a>
   </div>
 </section>
 
@@ -1527,6 +1570,29 @@
       updateToggleUI('light');
     }
   })();
+
+  // ── Mobile Nav ──
+  function toggleMobileNav() {
+    const links = document.querySelector('.nav-links');
+    const hamburger = document.getElementById('navHamburger');
+    const isOpen = links.classList.toggle('mobile-open');
+    hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.remove('mobile-open');
+      document.getElementById('navHamburger').setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    const nav = document.querySelector('nav');
+    if (!nav.contains(e.target)) {
+      document.querySelector('.nav-links').classList.remove('mobile-open');
+      document.getElementById('navHamburger').setAttribute('aria-expanded', 'false');
+    }
+  });
 
   // ── Reveal Observer ──
   const observer = new IntersectionObserver((entries) => {
