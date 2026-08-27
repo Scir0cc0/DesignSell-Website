@@ -55,7 +55,7 @@
     { "id": "T-10", "category": "content", "description": "Replace placeholder endorsement quote with a real name/title.", "status": "todo", "source_session": "06" },
     { "id": "T-11", "category": "content", "description": "Replace placeholder experience-grid card with a real employer/client.", "status": "todo", "source_session": "06" },
     { "id": "T-12", "category": "security", "description": "Resolve portfolio access-gate hardening: soft string swap vs. SHA-256 hash via crypto.subtle.digest. Code is currently plain-text 'openclaw2026' in a public repo.", "status": "open-decision", "source_session": ["03", "04"] },
-    { "id": "T-13", "category": "cleanup", "description": "Remove legacy netlify.toml from the repo.", "status": "todo", "source_session": "02" },
+    { "id": "T-13", "category": "cleanup", "description": "Remove legacy netlify.toml from the repo.", "status": "done", "source_session": "02", "note": "Confirmed 2026-08-27: netlify.toml is not present in the repo." },
     { "id": "T-14", "category": "qa", "description": "Mobile responsive review across all pages in the new system.", "status": "todo", "source_session": ["02", "03"] },
     { "id": "T-15", "category": "deploy", "description": "First commit of the blueprint redesign to the live repo. Nothing from this direction has been pushed yet.", "status": "todo", "source_session": "07" },
     { "id": "T-16", "category": "qa", "description": "Re-verify hero video playback in a real browser — sandbox testing only confirmed WebM/VP9 since the sandbox's headless Chromium lacks H.264 decoding.", "status": "todo", "source_session": "07", "depends_on": "T-03" }
@@ -68,6 +68,7 @@
     "Does the engagement/signal-markers content live as its own page or get inlined into index.html the way Perspectives was on the amber-direction site?"
   ],
   "changelog": [
+    { "date": "2026-08-27", "change": "T-13 marked done: netlify.toml confirmed absent from the repo." },
     { "date": "2026-08-27", "change": "Confirmed OpenClaw (the Pi-based agent) was never used to build any part of the site — all build work was done via Claude Chat. Resolves the open question from session 04. Also confirmed Scir0cc0/DesignSell-Website (renamed by Rob) is now the official repo for ongoing development." },
     { "date": "2026-08-27", "change": "worklist.json established as ground truth (v1.0.0) and committed to Obsidian + delivered for repo commit. Consolidated from the full DesignSell Website chat-session history (sessions 01–07, logged the same day in Obsidian)." },
     { "date": "2026-08-22", "change": "Blueprint/schematic redesign direction started in Claude's sandbox (session 07: 'Website direction change'). No prior worklist.json was ever committed to the repo despite being referenced in project memory at v0.4.2 — that version's history is not recoverable." }
