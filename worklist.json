@@ -1,0 +1,75 @@
+{
+  "worklist_version": "1.0.0",
+  "project": "DesignSell Website — Blueprint Redesign",
+  "site": "designsell.org",
+  "repo": "Scir0cc0/Designsell-Website",
+  "owner": "Robert G. Murray",
+  "last_updated": "2026-08-27",
+  "status": "active",
+  "notes": [
+    "This is the first version of worklist.json actually committed to the repo. Prior sessions referenced a v0.4.2 worklist that lived only in Claude's sandbox and was never pushed — the live repo root has no worklist.json as of 2026-08-27.",
+    "This file is ground truth for the NEW blueprint/schematic redesign, a full departure from the deployed amber/Syne site currently live. Nothing from this redesign has been committed to the repo yet.",
+    "Re-upload this file at the start of every new Claude session working on the redesign — the repo copy is canonical, and Claude's sandbox state resets between conversations.",
+    "A parallel record of every chat session on this project is kept in Obsidian under Projects/DesignSell/DesignSell Website/."
+  ],
+  "objectives": [
+    "Fully replace the deployed amber/Syne 'earlier direction' site with the blueprint/schematic design system across all pages.",
+    "Lock the blueprint design system (color, type, spacing) as the single source of truth.",
+    "Build out the four target pages: index.html, work.html, perspectives.html, about.html.",
+    "Migrate existing content (Perspectives essays, engagement model, signal markers/case studies, portfolio access gate, executive one-pagers) into the new system.",
+    "Resolve the hero treatment (static vs. video) and ship a decision.",
+    "Harden or consciously accept the portfolio access-gate security model.",
+    "Get a first real commit of the blueprint direction live on designsell.org."
+  ],
+
+  "design_tokens": {
+    "background": "#0e2a45",
+    "linework_accent": "#7fb8d9",
+    "signal_accent": "#ff5a1f",
+    "font_display_ui": "Space Mono",
+    "font_body": "Space Grotesk",
+    "logo": "green dragon mark (AI-generated, background removed), placed in bottom-left footer inside a proportional white circle beside the word 'DesignSell'",
+    "nav": "stripped to hamburger + Connect link only — no wordmark, no methodology eyebrow line",
+    "standing_prohibitions": [
+      "no gradients",
+      "no heavy/scroll-jacking animation",
+      "no bright tech blues outside the defined palette",
+      "no icon grids",
+      "no startup/SaaS illustration style",
+      "no card-with-drop-shadow elevation effects"
+    ],
+    "discarded_reference": "a16z-style landing page reference — explored, then fully discarded"
+  },
+
+  "tasks": [
+    { "id": "T-01", "category": "design-system", "description": "Define blueprint palette, type system (Space Mono + Space Grotesk), and standing prohibitions.", "status": "done", "source_session": "07" },
+    { "id": "T-02", "category": "hero", "description": "Build cycling headline hero ('Identify / Adopt / Innovate / Integrate / ...') with five progress ticks.", "status": "done", "source_session": "07" },
+    { "id": "T-03", "category": "hero", "description": "Decide: static hero vs. video hero (Flova.ai Blade Runner-interior clip tested; flagged tone mismatch). If video: finalize MP4 primary + WebM fallback, resolve the 7s loop point.", "status": "open-decision", "source_session": "07" },
+    { "id": "T-04", "category": "branding", "description": "Finalize dragon-logo sizing inside the footer circle (currently placed but sizing not locked).", "status": "in-progress", "source_session": "07" },
+    { "id": "T-05", "category": "build", "description": "Build index.html fully in the blueprint system (only hero/nav/footer prototyped in sandbox so far).", "status": "todo", "source_session": "07" },
+    { "id": "T-06", "category": "build", "description": "Build work.html.", "status": "todo", "source_session": "07" },
+    { "id": "T-07", "category": "build", "description": "Build perspectives.html — port the 5 existing position-statement essays into the new system.", "status": "todo", "source_session": "07", "depends_on_content_from": "06" },
+    { "id": "T-08", "category": "build", "description": "Build about.html.", "status": "todo", "source_session": "07" },
+
+    { "id": "T-09", "category": "content-migration", "description": "Port engagement model (Fractional VP, Board Advisory, 90-Day Diagnostic, Defined-Scope) and signal-markers/experience grid into the new system. Decide whether it stays a separate page or gets inlined the way Perspectives was on the amber site.", "status": "todo", "source_session": "06" },
+    { "id": "T-10", "category": "content", "description": "Replace placeholder endorsement quote with a real name/title.", "status": "todo", "source_session": "06" },
+    { "id": "T-11", "category": "content", "description": "Replace placeholder experience-grid card with a real employer/client.", "status": "todo", "source_session": "06" },
+    { "id": "T-12", "category": "security", "description": "Resolve portfolio access-gate hardening: soft string swap vs. SHA-256 hash via crypto.subtle.digest. Code is currently plain-text 'openclaw2026' in a public repo.", "status": "open-decision", "source_session": ["03", "04"] },
+    { "id": "T-13", "category": "cleanup", "description": "Remove legacy netlify.toml from the repo.", "status": "todo", "source_session": "02" },
+    { "id": "T-14", "category": "qa", "description": "Mobile responsive review across all pages in the new system.", "status": "todo", "source_session": ["02", "03"] },
+    { "id": "T-15", "category": "deploy", "description": "First commit of the blueprint redesign to the live repo. Nothing from this direction has been pushed yet.", "status": "todo", "source_session": "07" },
+    { "id": "T-16", "category": "qa", "description": "Re-verify hero video playback in a real browser — sandbox testing only confirmed WebM/VP9 since the sandbox's headless Chromium lacks H.264 decoding.", "status": "todo", "source_session": "07", "depends_on": "T-03" }
+  ],
+
+  "open_questions": [
+    "Static hero vs. video hero — and if video, is the Blade Runner-interior tone right for a technical/schematic site?",
+    "Final dragon-logo size in the footer circle.",
+    "Portfolio access code: soft string swap or SHA-256 hash?",
+    "Does the engagement/signal-markers content live as its own page or get inlined into index.html the way Perspectives was on the amber-direction site?"
+  ],
+  "changelog": [
+    { "date": "2026-08-27", "change": "Confirmed OpenClaw (the Pi-based agent) was never used to build any part of the site — all build work was done via Claude Chat. Resolves the open question from session 04. Also confirmed Scir0cc0/Designsell-Website (renamed by Rob) is now the official repo for ongoing development." },
+    { "date": "2026-08-27", "change": "worklist.json established as ground truth (v1.0.0) and committed to Obsidian + delivered for repo commit. Consolidated from the full DesignSell Website chat-session history (sessions 01–07, logged the same day in Obsidian)." },
+    { "date": "2026-08-22", "change": "Blueprint/schematic redesign direction started in Claude's sandbox (session 07: 'Website direction change'). No prior worklist.json was ever committed to the repo despite being referenced in project memory at v0.4.2 — that version's history is not recoverable." }
+  ]
+}
